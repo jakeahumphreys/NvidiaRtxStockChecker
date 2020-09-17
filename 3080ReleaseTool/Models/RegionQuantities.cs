@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//Nsomnic
+
 namespace _3080ReleaseTool.Models
 {
     public class RegionQuantities
