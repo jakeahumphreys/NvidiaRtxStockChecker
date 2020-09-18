@@ -121,7 +121,7 @@
     <value>17, 17</value>
   </metadata>
   <data name="label2.Text" xml:space="preserve">
-    <value>Checking this box will automatically check Nvidia stock and update every 30 seconds.
+    <value>Checking this box will automatically check Nvidia stock and update every 60 seconds.
 Alerts are enabled when auto-refresh is checked. When inventory hits your specified 
 alert target, a sound will play and the alert will disable.</value>
   </data>

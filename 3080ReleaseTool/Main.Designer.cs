@@ -37,30 +37,30 @@
             this.tmrAutoRefresh = new System.Windows.Forms.Timer(this.components);
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.lblSaveLog = new System.Windows.Forms.LinkLabel();
+            this.lbLogs = new System.Windows.Forms.ListBox();
+            this.numUsAlert = new System.Windows.Forms.NumericUpDown();
+            this.numUkAlert = new System.Windows.Forms.NumericUpDown();
+            this.cbAlertUs = new System.Windows.Forms.CheckBox();
+            this.cbAlertUk = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtQtyUs = new System.Windows.Forms.TextBox();
             this.txtQtyUk = new System.Windows.Forms.TextBox();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cbCartChecker = new System.Windows.Forms.CheckBox();
+            this.lbCartLog = new System.Windows.Forms.ListBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.cbAlertUk = new System.Windows.Forms.CheckBox();
-            this.cbAlertUs = new System.Windows.Forms.CheckBox();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.lbCartLog = new System.Windows.Forms.ListBox();
-            this.cbCartChecker = new System.Windows.Forms.CheckBox();
             this.tmrCartAlert = new System.Windows.Forms.Timer(this.components);
-            this.numUkAlert = new System.Windows.Forms.NumericUpDown();
-            this.numUsAlert = new System.Windows.Forms.NumericUpDown();
-            this.lbLogs = new System.Windows.Forms.ListBox();
-            this.lblSaveLog = new System.Windows.Forms.LinkLabel();
             this.saveFile = new System.Windows.Forms.SaveFileDialog();
-            this.label5 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            this.tabPage4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numUkAlert)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUsAlert)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUkAlert)).BeginInit();
+            this.tabPage4.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblUkQty
@@ -108,7 +108,7 @@
             // 
             // tmrAutoRefresh
             // 
-            this.tmrAutoRefresh.Interval = 5000;
+            this.tmrAutoRefresh.Interval = 60000;
             this.tmrAutoRefresh.Tick += new System.EventHandler(this.tmrAutoRefresh_Tick);
             // 
             // tabControl1
@@ -146,6 +146,66 @@
             this.tabPage1.Text = "Nvidia Inventory";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // lblSaveLog
+            // 
+            this.lblSaveLog.AutoSize = true;
+            this.lblSaveLog.Location = new System.Drawing.Point(7, 380);
+            this.lblSaveLog.Name = "lblSaveLog";
+            this.lblSaveLog.Size = new System.Drawing.Size(80, 20);
+            this.lblSaveLog.TabIndex = 14;
+            this.lblSaveLog.TabStop = true;
+            this.lblSaveLog.Text = "Save Log ";
+            this.lblSaveLog.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblSaveLog_LinkClicked);
+            // 
+            // lbLogs
+            // 
+            this.lbLogs.FormattingEnabled = true;
+            this.lbLogs.ItemHeight = 20;
+            this.lbLogs.Location = new System.Drawing.Point(7, 173);
+            this.lbLogs.Name = "lbLogs";
+            this.lbLogs.Size = new System.Drawing.Size(595, 204);
+            this.lbLogs.TabIndex = 13;
+            // 
+            // numUsAlert
+            // 
+            this.numUsAlert.Enabled = false;
+            this.numUsAlert.Location = new System.Drawing.Point(468, 38);
+            this.numUsAlert.Name = "numUsAlert";
+            this.numUsAlert.Size = new System.Drawing.Size(134, 26);
+            this.numUsAlert.TabIndex = 12;
+            // 
+            // numUkAlert
+            // 
+            this.numUkAlert.Enabled = false;
+            this.numUkAlert.Location = new System.Drawing.Point(467, 8);
+            this.numUkAlert.Name = "numUkAlert";
+            this.numUkAlert.Size = new System.Drawing.Size(135, 26);
+            this.numUkAlert.TabIndex = 11;
+            // 
+            // cbAlertUs
+            // 
+            this.cbAlertUs.AutoSize = true;
+            this.cbAlertUs.Enabled = false;
+            this.cbAlertUs.Location = new System.Drawing.Point(391, 37);
+            this.cbAlertUs.Name = "cbAlertUs";
+            this.cbAlertUs.Size = new System.Drawing.Size(70, 24);
+            this.cbAlertUs.TabIndex = 10;
+            this.cbAlertUs.Text = "Alert?";
+            this.cbAlertUs.UseVisualStyleBackColor = true;
+            this.cbAlertUs.CheckedChanged += new System.EventHandler(this.cbAlertUs_CheckedChanged);
+            // 
+            // cbAlertUk
+            // 
+            this.cbAlertUk.AutoSize = true;
+            this.cbAlertUk.Enabled = false;
+            this.cbAlertUk.Location = new System.Drawing.Point(391, 11);
+            this.cbAlertUk.Name = "cbAlertUk";
+            this.cbAlertUk.Size = new System.Drawing.Size(70, 24);
+            this.cbAlertUk.TabIndex = 9;
+            this.cbAlertUk.Text = "Alert?";
+            this.cbAlertUk.UseVisualStyleBackColor = true;
+            this.cbAlertUk.CheckedChanged += new System.EventHandler(this.cbAlertUk_CheckedChanged);
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -170,6 +230,50 @@
             this.txtQtyUk.Name = "txtQtyUk";
             this.txtQtyUk.Size = new System.Drawing.Size(189, 26);
             this.txtQtyUk.TabIndex = 6;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.label5);
+            this.tabPage4.Controls.Add(this.cbCartChecker);
+            this.tabPage4.Controls.Add(this.lbCartLog);
+            this.tabPage4.Location = new System.Drawing.Point(4, 29);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(611, 410);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Cart Alert";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(9, 44);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(542, 60);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Cart Alert checks the RTX 3080 Webpage for the \'Add to Cart\' button every \r\n30 se" +
+    "conds. When the button is found an alert will play and the check will\r\nstop look" +
+    "ing.\r\n";
+            // 
+            // cbCartChecker
+            // 
+            this.cbCartChecker.AutoSize = true;
+            this.cbCartChecker.Location = new System.Drawing.Point(9, 13);
+            this.cbCartChecker.Name = "cbCartChecker";
+            this.cbCartChecker.Size = new System.Drawing.Size(267, 24);
+            this.cbCartChecker.TabIndex = 1;
+            this.cbCartChecker.Text = "Check for \'Add to cart\' (UK ONLY)";
+            this.cbCartChecker.UseVisualStyleBackColor = true;
+            this.cbCartChecker.CheckedChanged += new System.EventHandler(this.cbCartChecker_CheckedChanged);
+            // 
+            // lbCartLog
+            // 
+            this.lbCartLog.FormattingEnabled = true;
+            this.lbCartLog.ItemHeight = 20;
+            this.lbCartLog.Location = new System.Drawing.Point(6, 130);
+            this.lbCartLog.Name = "lbCartLog";
+            this.lbCartLog.Size = new System.Drawing.Size(599, 264);
+            this.lbCartLog.TabIndex = 0;
             // 
             // tabPage3
             // 
@@ -205,119 +309,15 @@
     "the appropriate\r\nendpoint URLS\r\n";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // cbAlertUk
-            // 
-            this.cbAlertUk.AutoSize = true;
-            this.cbAlertUk.Enabled = false;
-            this.cbAlertUk.Location = new System.Drawing.Point(391, 11);
-            this.cbAlertUk.Name = "cbAlertUk";
-            this.cbAlertUk.Size = new System.Drawing.Size(70, 24);
-            this.cbAlertUk.TabIndex = 9;
-            this.cbAlertUk.Text = "Alert?";
-            this.cbAlertUk.UseVisualStyleBackColor = true;
-            this.cbAlertUk.CheckedChanged += new System.EventHandler(this.cbAlertUk_CheckedChanged);
-            // 
-            // cbAlertUs
-            // 
-            this.cbAlertUs.AutoSize = true;
-            this.cbAlertUs.Enabled = false;
-            this.cbAlertUs.Location = new System.Drawing.Point(391, 37);
-            this.cbAlertUs.Name = "cbAlertUs";
-            this.cbAlertUs.Size = new System.Drawing.Size(70, 24);
-            this.cbAlertUs.TabIndex = 10;
-            this.cbAlertUs.Text = "Alert?";
-            this.cbAlertUs.UseVisualStyleBackColor = true;
-            this.cbAlertUs.CheckedChanged += new System.EventHandler(this.cbAlertUs_CheckedChanged);
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.label5);
-            this.tabPage4.Controls.Add(this.cbCartChecker);
-            this.tabPage4.Controls.Add(this.lbCartLog);
-            this.tabPage4.Location = new System.Drawing.Point(4, 29);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(611, 410);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Cart Alert";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // lbCartLog
-            // 
-            this.lbCartLog.FormattingEnabled = true;
-            this.lbCartLog.ItemHeight = 20;
-            this.lbCartLog.Location = new System.Drawing.Point(6, 130);
-            this.lbCartLog.Name = "lbCartLog";
-            this.lbCartLog.Size = new System.Drawing.Size(599, 264);
-            this.lbCartLog.TabIndex = 0;
-            // 
-            // cbCartChecker
-            // 
-            this.cbCartChecker.AutoSize = true;
-            this.cbCartChecker.Location = new System.Drawing.Point(9, 13);
-            this.cbCartChecker.Name = "cbCartChecker";
-            this.cbCartChecker.Size = new System.Drawing.Size(267, 24);
-            this.cbCartChecker.TabIndex = 1;
-            this.cbCartChecker.Text = "Check for \'Add to cart\' (UK ONLY)";
-            this.cbCartChecker.UseVisualStyleBackColor = true;
-            this.cbCartChecker.CheckedChanged += new System.EventHandler(this.cbCartChecker_CheckedChanged);
-            // 
             // tmrCartAlert
             // 
             this.tmrCartAlert.Interval = 20000;
             this.tmrCartAlert.Tick += new System.EventHandler(this.tmrCartAlert_Tick);
             // 
-            // numUkAlert
-            // 
-            this.numUkAlert.Enabled = false;
-            this.numUkAlert.Location = new System.Drawing.Point(467, 8);
-            this.numUkAlert.Name = "numUkAlert";
-            this.numUkAlert.Size = new System.Drawing.Size(135, 26);
-            this.numUkAlert.TabIndex = 11;
-            // 
-            // numUsAlert
-            // 
-            this.numUsAlert.Enabled = false;
-            this.numUsAlert.Location = new System.Drawing.Point(468, 38);
-            this.numUsAlert.Name = "numUsAlert";
-            this.numUsAlert.Size = new System.Drawing.Size(134, 26);
-            this.numUsAlert.TabIndex = 12;
-            // 
-            // lbLogs
-            // 
-            this.lbLogs.FormattingEnabled = true;
-            this.lbLogs.ItemHeight = 20;
-            this.lbLogs.Location = new System.Drawing.Point(7, 173);
-            this.lbLogs.Name = "lbLogs";
-            this.lbLogs.Size = new System.Drawing.Size(595, 204);
-            this.lbLogs.TabIndex = 13;
-            // 
-            // lblSaveLog
-            // 
-            this.lblSaveLog.AutoSize = true;
-            this.lblSaveLog.Location = new System.Drawing.Point(7, 380);
-            this.lblSaveLog.Name = "lblSaveLog";
-            this.lblSaveLog.Size = new System.Drawing.Size(80, 20);
-            this.lblSaveLog.TabIndex = 14;
-            this.lblSaveLog.TabStop = true;
-            this.lblSaveLog.Text = "Save Log ";
-            this.lblSaveLog.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblSaveLog_LinkClicked);
-            // 
             // saveFile
             // 
             this.saveFile.DefaultExt = "txt";
             this.saveFile.Title = "Save Log";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(9, 44);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(542, 60);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Cart Alert checks the RTX 3080 Webpage for the \'Add to Cart\' button every \r\n30 se" +
-    "conds. When the button is found an alert will play and the check will\r\nstop look" +
-    "ing.\r\n";
             // 
             // Main
             // 
@@ -335,12 +335,12 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numUsAlert)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUkAlert)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numUkAlert)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUsAlert)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
 
         }
