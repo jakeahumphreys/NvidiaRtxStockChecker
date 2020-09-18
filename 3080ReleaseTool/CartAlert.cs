@@ -7,6 +7,7 @@ using System.Net;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace _3080ReleaseTool
 {
@@ -37,12 +38,12 @@ namespace _3080ReleaseTool
                 }
                 else
                 {
-                    Debug.WriteLine("ERROR");
                     return false;
                 }
             }
             else
             {
+                MessageBox.Show("Region Invalid");
                 return false;
             }
         }

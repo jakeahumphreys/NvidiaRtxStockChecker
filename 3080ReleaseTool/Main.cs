@@ -9,6 +9,7 @@ using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Documents;
 using System.Windows.Forms;
 using _3080ReleaseTool.Models;
 using Microsoft.Win32.SafeHandles;
@@ -77,12 +78,12 @@ namespace _3080ReleaseTool
             }
         }
 
-        private void CheckForCartButton()
+        private void CheckForCartButton(string region)
         {
             var soundPlayer = new SoundPlayer(@"c:\Windows\Media\Alarm01.wav");
             CartAlert cartAlert = new CartAlert();
 
-            if (cartAlert.checkForCartButton("UK"))
+            if (cartAlert.checkForCartButton(region))
             {
                 tmrCartAlert.Stop();
                 cbCartChecker.Checked = false;
@@ -92,7 +93,7 @@ namespace _3080ReleaseTool
             else
             {
                 //Out of Stock or Error
-                lbCartLog.Items.Add("[" + library.getCurrentTime() + "] " + "UK Out of Stock.");
+                lbCartLog.Items.Add("[" + library.getCurrentTime() + "]Region:  " + region + " - Out of Stock.");
             }
         }
 
@@ -100,21 +101,39 @@ namespace _3080ReleaseTool
         {
             if(cbCartChecker.Checked)
             {
-                tmrCartAlert.Start();
-                lbCartLog.Items.Add("Started checking for cart button.");
-                CheckForCartButton();
+                if(cbRegion.Text != "")
+                {
+                    tmrCartAlert.Start();
+                    lbCartLog.Items.Add("Started checking for cart button.");
+                    CheckForCartButton(cbRegion.Text);
+                }
+                else
+                {
+                    cbCartChecker.Checked = false;
+                    MessageBox.Show("Please select a region before starting the checker.");
+                }
             }
             else
             {
-                tmrCartAlert.Stop();
-                lbCartLog.Items.Add("Stopped checking for cart button.");
+                if(cbRegion.Text == "")
+                {
+                    lbCartLog.Items.Add("Check not started: No region selected.");
+                }
+                else
+                {
+                    tmrCartAlert.Stop();
+                    lbCartLog.Items.Add("Stopped checking for cart button.");
+                }
+               
             }
         }
 
         private void tmrCartAlert_Tick(object sender, EventArgs e)
         {
-            //add region parameters 
-            CheckForCartButton();
+            if (cbRegion.Text != "")
+            {
+                CheckForCartButton(cbRegion.Text);
+            }
         }
 
         private void cbAlertUk_CheckedChanged(object sender, EventArgs e)
