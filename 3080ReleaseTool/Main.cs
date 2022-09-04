@@ -20,6 +20,7 @@ namespace _3080ReleaseTool
 {
     public partial class Main : Form
     {
+        private const bool APPLICATION_DISABLED = true;
         Library library = new Library();
         public Main()
         {
@@ -33,17 +34,25 @@ namespace _3080ReleaseTool
 
         private void UpdateProductQty()
         {
-            InventoryTool inventoryTool = new InventoryTool();
+            if (!APPLICATION_DISABLED)
+            {
+                InventoryTool inventoryTool = new InventoryTool();
 
-            RegionQuantities quantities = inventoryTool.GetStockLevels();
+                RegionQuantities quantities = inventoryTool.GetStockLevels();
 
-            int ukQty = quantities.UK;
-            int usQty = quantities.US;
+                int ukQty = quantities.UK;
+                int usQty = quantities.US;
 
-            txtQtyUk.Text = ukQty.ToString();
-            txtQtyUs.Text = usQty.ToString();
+                txtQtyUk.Text = ukQty.ToString();
+                txtQtyUs.Text = usQty.ToString();
 
-            lbLogs.Items.Add("[" + library.getCurrentTime() + "] " + "UK Stock: " + ukQty + " " + "US Stock: " + usQty + ".");
+                lbLogs.Items.Add("[" + library.getCurrentTime() + "] " + "UK Stock: " + ukQty + " " + "US Stock: " + usQty + ".");
+            }
+            else
+            {
+                MessageBox.Show("Application has been disabled");
+            }
+           
         }
 
         private void btnManualUpdate_Click(object sender, EventArgs e)
